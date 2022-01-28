@@ -6,32 +6,36 @@ EntityManager::EntityManager() : m_totalEntities(0)
 
 void EntityManager::update()
 {
-    // TODO:
-    // add entities form m_entitiesToAdd to the proper location
-    // add them to the vecotr of all entities
-    // add them to the vecotr inside the map, with the tag as a key
-
     removeDeadEntities(m_entities);
 
     for (auto &[tag, entityVec] : m_entityMap)
     {
         removeDeadEntities(entityVec);
     }
+
+    for (auto & a: m_entitiesToAdd)
+    {
+        m_entities.push_back(a);
+        m_entityMap[a->tag()].push_back(a);
+    }
+    m_entitiesToAdd.clear();
 }
 
 void EntityManager::removeDeadEntities(EntityVec &vec)
 {
-    // TODO:
-    // remove all dead entites form the vector
-    // called by the update() function
+    //source: https://www.techiedelight.com/remove-elements-vector-inside-loop-cpp/
+    for (auto it = vec.begin(); it != vec.end(); it++)
+    {
+        if(!it->get()->isActive())
+        {
+            vec.erase(it--);
+        }
+    }
+    
 }
 
 std::shared_ptr<Entity> EntityManager::addEntity(const std::string & tag)
 {
-    // TODO:
-    // Implement this function so that entities are added tot he m_entititesToAdd vector here
-    // Add them to the proper locations in the update() function
-
     auto entity = std::shared_ptr<Entity>(new Entity(m_totalEntities++, tag));
     m_entitiesToAdd.push_back(entity);
 
@@ -45,7 +49,5 @@ const EntityVec & EntityManager::getEntities()
 
 const EntityVec & EntityManager::getEntities(const std::string & tag)
 {
-    // TODO:
-    // return the correct vector form the map
-    return m_entities;
+    return m_entityMap[tag];
 }

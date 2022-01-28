@@ -1,6 +1,5 @@
 #pragma once
 
-#include <fstream>
 #include <SFML/Graphics.hpp>
 
 #include "Entity.hpp"
@@ -8,17 +7,39 @@
 
 struct PlayerConfig
 {
-    int SR, CR, FR, FG, FB, OR, OG, OB, OT, V;
+    //  ShapeRadius, CollisionRadius
+    int SR, CR;
+    // FillColor(R,G,B)
+    int FR, FG, FB;
+    // OutlineColor(R,G,B)
+    int OR, OG, OB;
+    // OutlineThickness, ShapeVertices
+    int OT, V;
+    // Speed
     float S;
 };
 struct EnemyConfig
 {
-    int SR, CR, OR, OG, OB, OT, VMIN, VMAX, L, SI;
+    //  ShapeRadius, CollisionRadius
+    int SR, CR;
+    // OutlineColor(R,G,B)
+    int OR, OG, OB;
+    // OutlineThickness, ShapeVerticesMin, ShapeVerticesMax, LifespanOfSmall, SpawnInterval
+    int OT, VMIN, VMAX, L, SI;
+    // SpeedMin, SpeedMax
     float SMIN, SMAX;
 };
 struct BulletConfig
 {
-    int SR, CR, FR, FG, FB, OR, OG, OB, OT, V, L;
+    //  ShapeRadius, CollisionRadius
+    int SR, CR;
+    // FillColor(R,G,B)
+    int FR, FG, FB;
+    // OutlineColor(R,G,B)
+    int OR, OG, OB;
+    // OutlineThickness, ShapeVertices, Lifespan
+    int OT, V, L;
+    // Speed
     float S;
 };
 
@@ -49,6 +70,7 @@ class Game
     void sRender();
     void sEnemySpawner();
     void sCollision();
+    void sInterface();
 
     void spawnPlayer();
     void spawnEnemy();

@@ -23,4 +23,5 @@ public:
     void operator/=(const float val);
 
     float dist(const Vec2 & rhs) const;
+    float dist2(const Vec2 & rhs) const;
 };

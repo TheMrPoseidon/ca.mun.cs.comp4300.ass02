@@ -1,4 +1,5 @@
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+find_package(fmt)
 
 add_library(ass02_lib
     ../include/Vec2.hpp
@@ -13,7 +14,7 @@ add_library(ass02_lib
 add_library(ass02::lib ALIAS ass02_lib)
 
 target_link_libraries(ass02_lib
-        PUBLIC ass02::compiler_options sfml-graphics sfml-audio)
+        PUBLIC ass02::compiler_options sfml-graphics sfml-audio fmt::fmt)
 target_include_directories(ass02_lib PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 if(${BP_BUILD_TESTS_COVERAGE})
