@@ -49,9 +49,9 @@ class Game
     EntityManager m_entities;
     sf::Font m_font;
     sf::Text m_text;
-    PlayerConfig m_playerConfig;
-    EnemyConfig m_enemyConfig;
-    BulletConfig m_bulletConfig;
+    PlayerConfig m_playerConfig{};
+    EnemyConfig m_enemyConfig{};
+    BulletConfig m_bulletConfig{};
     int m_score = 0;
     int m_currentFrame = 0;
     int m_lastEnemySpawnTime = 0;
