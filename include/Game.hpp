@@ -71,6 +71,7 @@ class Game
     void sEnemySpawner();
     void sCollision();
     void sInterface();
+    void sGameOver();
 
     void spawnPlayer();
     void spawnEnemy();
@@ -80,6 +81,6 @@ class Game
 
 public:
     Game(const std::string &config);
-
+    
     void run();
 };

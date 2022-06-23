@@ -24,4 +24,6 @@ public:
 
     float dist(const Vec2 & rhs) const;
     float dist2(const Vec2 & rhs) const;
+
+    Vec2 norm() const;
 };

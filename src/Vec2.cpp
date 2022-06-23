@@ -81,3 +81,8 @@ float Vec2::dist2(const Vec2 & rhs) const
     float dy = y-rhs.y; 
     return dx*dx + dy*dy;
 }
+
+Vec2 Vec2::norm() const {
+    float dist = sqrtf(x*x + y*y);
+    return Vec2(x / dist, y / dist);
+}
