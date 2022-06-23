@@ -1,5 +1,6 @@
 # ca.mun.cs.comp4300.ass02
-My Boilerplate for the Assigment 02 of the following YT Series: https://www.youtube.com/watch?v=V6DwM8GUlLw
+My Solution for the Assigment 02 of the following YT Series: https://www.youtube.com/watch?v=V6DwM8GUlLw
+Without the special weapon system
 
 ## Prerequisite
 - C++ Compiler (VC++, Clang, GCC)
