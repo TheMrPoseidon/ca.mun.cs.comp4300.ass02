@@ -268,6 +268,15 @@ void Game::sCollision()
                 p->destroy();
             }
         }
+
+        for (auto e : m_entities.getEntities("small"))
+        {
+            float dist = p->cTransform->pos.dist2(e->cTransform->pos);
+            if (dist <= pow(p->cCollision->radius + e->cCollision->radius, 2))
+            {
+                p->destroy();
+            }
+        }
     }
 
     for (auto b : m_entities.getEntities("bullet"))
